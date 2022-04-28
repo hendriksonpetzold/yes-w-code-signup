@@ -37,7 +37,16 @@ class _HomePageState extends State<RegisterPage> {
                 ),
               ),
             ),
-            const RegisterPageForm(),
+            RegisterPageForm(
+              controller: controller,
+              formKey: controller.formKey,
+              onChangeName: (String newName) {
+                controller.onChangeName(newName: newName);
+              },
+              mudarSenhaBanana: (String newSenhaBanana) {
+                controller.onChangePassword(newPassword: newSenhaBanana);
+              },
+            ),
             const SizedBox(
               height: 70,
             ),
@@ -46,10 +55,10 @@ class _HomePageState extends State<RegisterPage> {
               child: Button(
                 buttonName: 'Criar conta',
                 onTap: () {
-                  log(controller.name);
+                  log('name when press button ${controller.name}');
                   controller.addUser(
                     controller.name,
-                    controller.passwordEC.text,
+                    controller.password,
                     controller.emailEC.text,
                     controller.bornDateEC.text,
                   );
