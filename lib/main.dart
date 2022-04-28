@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:yes_w_code_project/app.dart';
 
 void main() async {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  runApp(const MyApp());
 }

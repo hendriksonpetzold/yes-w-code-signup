@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 
-class LoginPageForm extends StatelessWidget {
-  const LoginPageForm({Key? key}) : super(key: key);
+class LoginPageForm extends StatefulWidget {
+  final TextEditingController? user;
+  final TextEditingController? password;
+  const LoginPageForm({Key? key, this.user, this.password}) : super(key: key);
 
+  @override
+  State<LoginPageForm> createState() => _LoginPageFormState();
+}
+
+class _LoginPageFormState extends State<LoginPageForm> {
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -10,6 +17,7 @@ class LoginPageForm extends StatelessWidget {
         children: [
           TextFormField(
             autovalidateMode: AutovalidateMode.onUserInteraction,
+            controller: widget.user,
             decoration: const InputDecoration(
               labelText: 'Usuário',
               labelStyle: TextStyle(color: Color.fromRGBO(54, 33, 102, 1)),
@@ -27,6 +35,7 @@ class LoginPageForm extends StatelessWidget {
           TextFormField(
             autovalidateMode: AutovalidateMode.onUserInteraction,
             obscureText: true,
+            controller: widget.password,
             decoration: const InputDecoration(
               labelText: 'Senha',
               labelStyle: TextStyle(color: Color.fromRGBO(54, 33, 102, 1)),

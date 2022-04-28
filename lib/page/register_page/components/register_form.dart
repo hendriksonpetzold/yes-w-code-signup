@@ -1,12 +1,21 @@
-import 'dart:developer';
-
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:yes_w_code_project/page/register_page/register_controller.dart';
+
 import 'package:yes_w_code_project/utils/born_date_mask.dart';
 
 class RegisterPageForm extends StatefulWidget {
-  const RegisterPageForm({Key? key}) : super(key: key);
+  final TextEditingController name;
+  final TextEditingController email;
+  final TextEditingController bornDate;
+  final TextEditingController password;
+  final GlobalKey formKey;
+  const RegisterPageForm({
+    Key? key,
+    required this.name,
+    required this.email,
+    required this.bornDate,
+    required this.password,
+    required this.formKey,
+  }) : super(key: key);
 
   @override
   State<RegisterPageForm> createState() => _RegisterPageFormState();
@@ -15,12 +24,10 @@ class RegisterPageForm extends StatefulWidget {
 class _RegisterPageFormState extends State<RegisterPageForm> {
   final BornDateMask bornDateMask = BornDateMask();
 
-  final RegisterController controller = RegisterController();
-
   @override
   Widget build(BuildContext context) {
     return Form(
-      key: controller.formKey,
+      key: widget.formKey,
       child: Padding(
         padding: const EdgeInsets.only(left: 40, right: 40),
         child: Column(
@@ -43,11 +50,7 @@ class _RegisterPageFormState extends State<RegisterPageForm> {
             ),
             TextFormField(
               autovalidateMode: AutovalidateMode.onUserInteraction,
-              controller: controller.nameEC,
-              onChanged: (name) {
-                controller.name = name;
-                log(controller.name);
-              },
+              controller: widget.name,
               validator: (name) {
                 if (name == null || name.length < 3) {
                   return 'Nome muito pequeno';
@@ -70,12 +73,9 @@ class _RegisterPageFormState extends State<RegisterPageForm> {
             ),
             TextFormField(
               autovalidateMode: AutovalidateMode.onUserInteraction,
-              controller: controller.emailEC,
-              //onChanged: (email) {
-              //controller.email = email;
-              //},
+              controller: widget.email,
               validator: (email) {
-                if (!RegExp(r'[a-zA-z0-9.-_]+@[a-zA-z0-9-_]+\..+').hasMatch(
+                if (!RegExp(r'[a-zA-z0-9.-_]+@[a-zA-z0-9-_]+\.(com)+').hasMatch(
                   email ?? '',
                 )) {
                   return 'E-mail invalido';
@@ -99,10 +99,7 @@ class _RegisterPageFormState extends State<RegisterPageForm> {
             TextFormField(
               autovalidateMode: AutovalidateMode.onUserInteraction,
               inputFormatters: [bornDateMask],
-              controller: controller.bornDateEC,
-              //onChanged: (bornDate) {
-              //controller.bornDate = bornDate;
-              //},
+              controller: widget.bornDate,
               validator: (bornDate) {
                 if (!RegExp(r'^\d{2}\/\d{2}\/\d{4}$').hasMatch(
                   bornDate ?? '',
@@ -128,12 +125,13 @@ class _RegisterPageFormState extends State<RegisterPageForm> {
             TextFormField(
               autovalidateMode: AutovalidateMode.onUserInteraction,
               obscureText: true,
-              controller: controller.passwordEC,
-              //onChanged: (password) {
-              //controller.password = password;
-              //},
+              controller: widget.password,
               validator: (value) {
-                if (value == null || value.length < 6) {
+                if (value == null ||
+                    value.length < 6 ||
+                    !RegExp(r'[0-9]').hasMatch(value) ||
+                    !RegExp(r'[A-Z]').hasMatch(value) ||
+                    !RegExp(r'[a-z]').hasMatch(value)) {
                   return 'Senha Fraca';
                 }
                 return null;
@@ -157,7 +155,7 @@ class _RegisterPageFormState extends State<RegisterPageForm> {
               obscureText: true,
               validator: (confirmPassword) {
                 if (confirmPassword == null ||
-                    confirmPassword != controller.passwordEC.text) {
+                    confirmPassword != widget.password.text) {
                   return 'As senhas estão diferentes';
                 }
                 return null;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:yes_w_code_project/page/component/rout_button.dart';
+import 'package:yes_w_code_project/page/component/button.dart';
 
 class OnBoadingPage extends StatelessWidget {
   const OnBoadingPage({Key? key}) : super(key: key);
@@ -10,11 +10,11 @@ class OnBoadingPage extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.only(left: 40, right: 40, top: 30),
         child: Column(
-          children: const [
-            SizedBox(
+          children: [
+            const SizedBox(
               height: 350,
             ),
-            SizedBox(
+            const SizedBox(
               width: double.infinity,
               height: 100,
               child: Text(
@@ -27,15 +27,19 @@ class OnBoadingPage extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            RoutButton(
-              routOfButton: '/loginPage',
+            Button(
+              onTap: () {
+                Navigator.of(context).pushNamed('/loginPage');
+              },
               buttonName: 'Logar',
             ),
-            SizedBox(
+            const SizedBox(
               height: 15,
             ),
-            RoutButton(
-              routOfButton: '/registerPage',
+            Button(
+              onTap: () {
+                Navigator.of(context).pushNamed('/registerPage');
+              },
               buttonName: 'Criar uma conta',
             ),
           ],

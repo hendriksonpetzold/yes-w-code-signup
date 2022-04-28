@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:yes_w_code_project/page/component/button.dart';
-import 'package:yes_w_code_project/page/register_page/components/register_page_form.dart';
+import 'package:yes_w_code_project/page/register_page/components/register_form.dart';
 
 import 'package:yes_w_code_project/page/register_page/register_controller.dart';
 
@@ -37,7 +37,13 @@ class _HomePageState extends State<RegisterPage> {
                 ),
               ),
             ),
-            const RegisterPageForm(),
+            RegisterPageForm(
+              name: controller.nameEditingController,
+              email: controller.emailEditingController,
+              bornDate: controller.bornDateEditingController,
+              password: controller.passwordEditingController,
+              formKey: controller.formKey,
+            ),
             const SizedBox(
               height: 70,
             ),
@@ -46,13 +52,18 @@ class _HomePageState extends State<RegisterPage> {
               child: Button(
                 buttonName: 'Criar conta',
                 onTap: () {
-                  log(controller.name);
-                  controller.addUser(
-                    controller.name,
-                    controller.passwordEC.text,
-                    controller.emailEC.text,
-                    controller.bornDateEC.text,
-                  );
+                  String message = 'Erro ao registrar usuário';
+                  if (controller.formKey.currentState!.validate()) {
+                    controller.addUser(
+                      controller.nameEditingController.text,
+                      controller.passwordEditingController.text,
+                      controller.emailEditingController.text,
+                      controller.bornDateEditingController.text,
+                    );
+                    message = 'Usuário registrado';
+                  }
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text(message)));
                 },
               ),
             ),

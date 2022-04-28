@@ -1,11 +1,22 @@
+import 'dart:developer';
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:yes_w_code_project/page/component/button.dart';
 import 'package:yes_w_code_project/page/login_page/components/login_page_form.dart';
 import 'package:yes_w_code_project/page/login_page/components/text_with_inkwell_button.dart';
+import 'package:yes_w_code_project/page/login_page/login_controller.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+LoginController controller = LoginController();
+
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,12 +61,25 @@ class LoginPage extends StatelessWidget {
                   const SizedBox(
                     height: 70,
                   ),
-                  const LoginPageForm(),
+                  LoginPageForm(
+                    user: controller.userEditingController,
+                    password: controller.passwordEditingController,
+                  ),
                   const SizedBox(
                     height: 100,
                   ),
                   Button(
                     buttonName: 'Login',
+                    onTap: () {
+                      FirebaseAuth.instance
+                          .signInWithEmailAndPassword(
+                              email: controller.userEditingController.text,
+                              password:
+                                  controller.passwordEditingController.text)
+                          .then((value) {
+                        Navigator.of(context).pushNamed('/homePage');
+                      });
+                    },
                   ),
                   const TextWithInkWellButton(
                       buttonText: 'Criar conta',
