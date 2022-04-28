@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "235525666744",
+    "project_id": "yes-w-code-project",
+    "storage_bucket": "yes-w-code-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235525666744:android:309accace4e929304d014d",
+        "android_client_info": {
+          "package_name": "com.example.yes_w_code_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "235525666744-2ctvnvksmjdegki5hulqa78b72qfgnrt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBv2TbIUXT3jImIwXp_9HDcmt01aQvv-eo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "235525666744-2ctvnvksmjdegki5hulqa78b72qfgnrt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
