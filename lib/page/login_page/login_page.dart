@@ -73,9 +73,9 @@ class _LoginPageState extends State<LoginPage> {
                     onTap: () {
                       FirebaseAuth.instance
                           .signInWithEmailAndPassword(
-                              email: controller.userEditingController.text,
-                              password:
-                                  controller.passwordEditingController.text)
+                        email: controller.userEditingController.text,
+                        password: controller.passwordEditingController.text,
+                      )
                           .then((value) {
                         Navigator.of(context).pushNamed('/homePage');
                       });
