@@ -70,15 +70,23 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   Button(
                     buttonName: 'Login',
-                    onTap: () {
-                      FirebaseAuth.instance
-                          .signInWithEmailAndPassword(
-                        email: controller.userEditingController.text,
-                        password: controller.passwordEditingController.text,
-                      )
-                          .then((value) {
-                        Navigator.of(context).pushNamed('/homePage');
-                      });
+                    onTap: () async {
+                      try {
+                        await FirebaseAuth.instance
+                            .signInWithEmailAndPassword(
+                          email: controller.userEditingController.text,
+                          password: controller.passwordEditingController.text,
+                        )
+                            .then((value) {
+                          Navigator.of(context).pushNamed('/homePage');
+                        });
+                      } catch (e) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(e.toString()),
+                          ),
+                        );
+                      }
                     },
                   ),
                   const TextWithInkWellButton(
