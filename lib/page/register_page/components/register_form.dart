@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'package:yes_w_code_project/utils/born_date_mask.dart';
 
-class RegisterPageForm extends StatefulWidget {
+class RegisterForm extends StatefulWidget {
   final TextEditingController name;
   final TextEditingController email;
   final TextEditingController bornDate;
   final TextEditingController password;
   final GlobalKey formKey;
-  const RegisterPageForm({
+  const RegisterForm({
     Key? key,
     required this.name,
     required this.email,
@@ -18,10 +18,10 @@ class RegisterPageForm extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<RegisterPageForm> createState() => _RegisterPageFormState();
+  State<RegisterForm> createState() => _RegisterPageFormState();
 }
 
-class _RegisterPageFormState extends State<RegisterPageForm> {
+class _RegisterPageFormState extends State<RegisterForm> {
   final BornDateMask bornDateMask = BornDateMask();
 
   @override
@@ -32,22 +32,6 @@ class _RegisterPageFormState extends State<RegisterPageForm> {
         padding: const EdgeInsets.only(left: 40, right: 40),
         child: Column(
           children: [
-            const SizedBox(
-              width: double.infinity,
-              height: 100,
-              child: Text(
-                'Cadestre-se e tenha conteúdo 100% gratuito para voar na carreira',
-                style: TextStyle(
-                  color: Color.fromRGBO(54, 33, 102, 1),
-                  fontSize: 19,
-                  fontWeight: FontWeight.w700,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            const SizedBox(
-              height: 60,
-            ),
             TextFormField(
               autovalidateMode: AutovalidateMode.onUserInteraction,
               controller: widget.name,

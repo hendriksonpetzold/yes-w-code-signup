@@ -12,7 +12,7 @@ class Button extends StatelessWidget {
       width: double.infinity,
       height: 60,
       decoration: const BoxDecoration(
-        color: Color.fromRGBO(54, 33, 102, 1),
+        color: Color(0xFF362166),
         borderRadius: BorderRadius.all(Radius.circular(10)),
       ),
       child: TextButton(

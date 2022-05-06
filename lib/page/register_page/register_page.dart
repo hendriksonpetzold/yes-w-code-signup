@@ -1,9 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:yes_w_code_project/page/component/button.dart';
 import 'package:yes_w_code_project/page/register_page/components/register_form.dart';
-
+import 'package:yes_w_code_project/page/register_page/components/register_page_stack.dart';
 import 'package:yes_w_code_project/page/register_page/register_controller.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -26,18 +24,11 @@ class _HomePageState extends State<RegisterPage> {
             const SizedBox(
               height: 30,
             ),
-            Align(
-              alignment: const Alignment(-0.9, -1),
-              child: SizedBox(
-                height: 80,
-                width: 60,
-                child: Image.asset(
-                  'assets/yeswcode.jpg',
-                  fit: BoxFit.fill,
-                ),
-              ),
+            const RegisterPageStack(),
+            const SizedBox(
+              height: 15,
             ),
-            RegisterPageForm(
+            RegisterForm(
               name: controller.nameEditingController,
               email: controller.emailEditingController,
               bornDate: controller.bornDateEditingController,

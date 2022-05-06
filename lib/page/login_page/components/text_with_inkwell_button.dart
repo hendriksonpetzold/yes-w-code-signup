@@ -14,9 +14,12 @@ class TextWithInkWellButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
+      width: 280,
       height: 50,
-      color: Colors.white,
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+        color: Color(0xFFC4C4C4),
+      ),
       child: Row(
         children: [
           const SizedBox(
@@ -36,7 +39,7 @@ class TextWithInkWellButton extends StatelessWidget {
             child: Text(
               buttonText,
               style: const TextStyle(
-                color: Color.fromRGBO(54, 33, 102, 1),
+                color: Color(0xFF362166),
                 fontWeight: FontWeight.w600,
               ),
             ),

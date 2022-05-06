@@ -19,8 +19,8 @@ class _LoginPageFormState extends State<LoginPageForm> {
             autovalidateMode: AutovalidateMode.onUserInteraction,
             controller: widget.user,
             decoration: const InputDecoration(
-              labelText: 'Usuário',
-              labelStyle: TextStyle(color: Color.fromRGBO(54, 33, 102, 1)),
+              labelText: 'E-mail',
+              labelStyle: TextStyle(color: Color(0xFF362166)),
               border: OutlineInputBorder(
                 borderSide: BorderSide(color: Color.fromRGBO(0, 0, 0, 0.2)),
               ),
@@ -38,7 +38,7 @@ class _LoginPageFormState extends State<LoginPageForm> {
             controller: widget.password,
             decoration: const InputDecoration(
               labelText: 'Senha',
-              labelStyle: TextStyle(color: Color.fromRGBO(54, 33, 102, 1)),
+              labelStyle: TextStyle(color: Color(0xFF362166)),
               border: OutlineInputBorder(
                 borderSide: BorderSide(color: Color.fromRGBO(0, 0, 0, 0.2)),
               ),

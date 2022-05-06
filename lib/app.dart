@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yes_w_code_project/page/home_page/home_page.dart';
 import 'page/login_page/login_page.dart';
-import 'page/onboarding_page/onboading_page.dart';
 import 'page/register_page/register_page.dart';
 
 class MyApp extends StatelessWidget {
@@ -15,9 +14,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       routes: {
-        '/': (_) => const OnBoadingPage(),
+        '/': (_) => const LoginPage(),
         '/registerPage': (_) => const RegisterPage(),
-        '/loginPage': (_) => const LoginPage(),
         '/homePage': (_) => const HomePage(),
       },
     );
