@@ -37,6 +37,9 @@ dependencies:
   cloud_firestore: ^3.1.13
   firebase_core: ^1.15.0
   firebase_auth: ^3.3.16
+  http: ^0.13.4
+  youtube_player_flutter: ^8.0.0
+  cached_network_image: ^3.2.0
   
 
 dev_dependencies:
@@ -67,6 +70,13 @@ flutter:
    - assets/yeswcodeimage1.jpg
    - assets/yeswcodelogoimage.jpg
    - assets/yeswcodeloginimage.jpg
+   - assets/backgroundimage.jpg
+   - assets/Ellipse1.jpg
+   - assets/Ellipse2.jpg
+   - assets/Ellipse3.jpg
+   - assets/Ellipse4.jpg
+   - assets/Articles1.jpg
+   - assets/Articles2.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

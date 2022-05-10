@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:yes_w_code_project/page/component/button.dart';
 
-class CustomDialog extends Dialog {
+class ErrorDialog extends Dialog {
   final String message;
   final BuildContext context;
-  CustomDialog({Key? key, required this.message, required this.context})
+  ErrorDialog({Key? key, required this.message, required this.context})
       : super(
           key: key,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
-          child: Container(
+          child: SizedBox(
             width: 250,
             height: 260,
             child: Column(
