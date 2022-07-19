@@ -99,7 +99,7 @@ class HomePage extends StatelessWidget {
                 height: 10,
               ),
               const YoutubeVideoListView(
-                urlYoutube: 'https://www.youtube.com/watch?v=3PalLqQPQdA&t=67s',
+                urlYoutube: 'https://www.youtube.com/watch?v=_2c8YZwzaMk',
               ),
               const SizedBox(
                 height: 20,
@@ -113,7 +113,7 @@ class HomePage extends StatelessWidget {
               const SizedBox(
                 height: 10,
               ),
-              Container(
+              SizedBox(
                 width: double.infinity,
                 height: 600,
                 child: Column(
@@ -129,7 +129,7 @@ class HomePage extends StatelessWidget {
                     Articles(
                       description: 'Descrição',
                       title: 'Titulo',
-                      image: 'assets/Articles2.jpg',
+                      image: 'assets/newArticle2.jpg',
                     ),
                     SizedBox(
                       height: 10,

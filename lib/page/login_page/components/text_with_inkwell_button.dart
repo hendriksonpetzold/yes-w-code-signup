@@ -41,6 +41,7 @@ class TextWithInkWellButton extends StatelessWidget {
               style: const TextStyle(
                 color: Color(0xFF362166),
                 fontWeight: FontWeight.w600,
+                decoration: TextDecoration.underline,
               ),
             ),
           )

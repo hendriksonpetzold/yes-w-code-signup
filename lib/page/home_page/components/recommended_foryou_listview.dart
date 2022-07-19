@@ -6,7 +6,7 @@ class RecommendedForyouListview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 1500,
+      width: double.infinity,
       height: 120,
       child: ListView(
         scrollDirection: Axis.horizontal,

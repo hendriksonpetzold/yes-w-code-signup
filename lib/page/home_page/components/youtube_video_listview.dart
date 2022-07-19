@@ -48,7 +48,7 @@ class _YoutubeVideoListViewState extends State<YoutubeVideoListView> {
       player: YoutubePlayer(controller: controller!),
       builder: (context, player) {
         return SizedBox(
-          width: 1500,
+          width: double.infinity,
           height: 130,
           child: ListView(
             scrollDirection: Axis.horizontal,
@@ -69,7 +69,7 @@ class _YoutubeVideoListViewState extends State<YoutubeVideoListView> {
                     width: 230,
                     color: Colors.grey,
                     child: const YoutubeVideoListView(
-                      urlYoutube: 'https://www.youtube.com/watch?v=Tu96yevGMEA',
+                      urlYoutube: 'https://www.youtube.com/watch?v=S800sEVgFGI',
                     ),
                   ),
                   const SizedBox(
@@ -79,6 +79,12 @@ class _YoutubeVideoListViewState extends State<YoutubeVideoListView> {
                     height: 130,
                     width: 230,
                     color: Colors.grey,
+                    child: const YoutubeVideoListView(
+                      urlYoutube: 'https://www.youtube.com/watch?v=ABzDOSQkhTM',
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
                   ),
                 ],
               ),
