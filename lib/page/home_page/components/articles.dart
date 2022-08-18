@@ -32,7 +32,7 @@ class Articles extends StatelessWidget {
           ),
           SizedBox(
             height: 140,
-            width: 230,
+            width: 200,
             child: Column(
               children: [
                 Align(
